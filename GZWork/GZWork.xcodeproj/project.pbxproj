@@ -1,0 +1,369 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F766E05F20439A8900F09BE8 /* NSObject+GZModelAndClick.m in Sources */ = {isa = PBXBuildFile; fileRef = F766E05E20439A8900F09BE8 /* NSObject+GZModelAndClick.m */; };
+		F766E06320439E5C00F09BE8 /* GZTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F766E06120439E5C00F09BE8 /* GZTableViewCell.m */; };
+		F766E06420439E5C00F09BE8 /* GZTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F766E06220439E5C00F09BE8 /* GZTableViewCell.xib */; };
+		F77DE27D20429D0B006C3020 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F77DE27C20429D0B006C3020 /* AppDelegate.m */; };
+		F77DE28020429D0B006C3020 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77DE27F20429D0B006C3020 /* ViewController.m */; };
+		F77DE28320429D0B006C3020 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F77DE28120429D0B006C3020 /* Main.storyboard */; };
+		F77DE28520429D0B006C3020 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F77DE28420429D0B006C3020 /* Assets.xcassets */; };
+		F77DE28820429D0B006C3020 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F77DE28620429D0B006C3020 /* LaunchScreen.storyboard */; };
+		F77DE28B20429D0B006C3020 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F77DE28A20429D0B006C3020 /* main.m */; };
+		F77DE29420429D6C006C3020 /* GZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77DE29320429D6C006C3020 /* GZViewController.m */; };
+		F77DE29720429D8D006C3020 /* GZTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F77DE29620429D8D006C3020 /* GZTableView.m */; };
+		F77DE29A2042A067006C3020 /* GZCeshiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77DE2992042A067006C3020 /* GZCeshiViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F766E05D20439A8800F09BE8 /* NSObject+GZModelAndClick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+GZModelAndClick.h"; sourceTree = "<group>"; };
+		F766E05E20439A8900F09BE8 /* NSObject+GZModelAndClick.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GZModelAndClick.m"; sourceTree = "<group>"; };
+		F766E06020439E5C00F09BE8 /* GZTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZTableViewCell.h; sourceTree = "<group>"; };
+		F766E06120439E5C00F09BE8 /* GZTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZTableViewCell.m; sourceTree = "<group>"; };
+		F766E06220439E5C00F09BE8 /* GZTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GZTableViewCell.xib; sourceTree = "<group>"; };
+		F77DE27820429D0B006C3020 /* GZWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GZWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F77DE27B20429D0B006C3020 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F77DE27C20429D0B006C3020 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F77DE27E20429D0B006C3020 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F77DE27F20429D0B006C3020 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F77DE28220429D0B006C3020 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F77DE28420429D0B006C3020 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F77DE28720429D0B006C3020 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F77DE28920429D0B006C3020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F77DE28A20429D0B006C3020 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F77DE29220429D6C006C3020 /* GZViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZViewController.h; sourceTree = "<group>"; };
+		F77DE29320429D6C006C3020 /* GZViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZViewController.m; sourceTree = "<group>"; };
+		F77DE29520429D8D006C3020 /* GZTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZTableView.h; sourceTree = "<group>"; };
+		F77DE29620429D8D006C3020 /* GZTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZTableView.m; sourceTree = "<group>"; };
+		F77DE2982042A067006C3020 /* GZCeshiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZCeshiViewController.h; sourceTree = "<group>"; };
+		F77DE2992042A067006C3020 /* GZCeshiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZCeshiViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F77DE27520429D0B006C3020 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F77DE26F20429D0B006C3020 = {
+			isa = PBXGroup;
+			children = (
+				F77DE27A20429D0B006C3020 /* GZWork */,
+				F77DE27920429D0B006C3020 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F77DE27920429D0B006C3020 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F77DE27820429D0B006C3020 /* GZWork.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F77DE27A20429D0B006C3020 /* GZWork */ = {
+			isa = PBXGroup;
+			children = (
+				F77DE27B20429D0B006C3020 /* AppDelegate.h */,
+				F77DE27C20429D0B006C3020 /* AppDelegate.m */,
+				F77DE27E20429D0B006C3020 /* ViewController.h */,
+				F77DE27F20429D0B006C3020 /* ViewController.m */,
+				F77DE2982042A067006C3020 /* GZCeshiViewController.h */,
+				F77DE2992042A067006C3020 /* GZCeshiViewController.m */,
+				F77DE29120429D50006C3020 /* Works */,
+				F77DE28120429D0B006C3020 /* Main.storyboard */,
+				F77DE28420429D0B006C3020 /* Assets.xcassets */,
+				F77DE28620429D0B006C3020 /* LaunchScreen.storyboard */,
+				F77DE28920429D0B006C3020 /* Info.plist */,
+				F77DE28A20429D0B006C3020 /* main.m */,
+			);
+			path = GZWork;
+			sourceTree = "<group>";
+		};
+		F77DE29120429D50006C3020 /* Works */ = {
+			isa = PBXGroup;
+			children = (
+				F77DE29220429D6C006C3020 /* GZViewController.h */,
+				F77DE29320429D6C006C3020 /* GZViewController.m */,
+				F77DE29520429D8D006C3020 /* GZTableView.h */,
+				F77DE29620429D8D006C3020 /* GZTableView.m */,
+				F766E05D20439A8800F09BE8 /* NSObject+GZModelAndClick.h */,
+				F766E05E20439A8900F09BE8 /* NSObject+GZModelAndClick.m */,
+				F766E06020439E5C00F09BE8 /* GZTableViewCell.h */,
+				F766E06120439E5C00F09BE8 /* GZTableViewCell.m */,
+				F766E06220439E5C00F09BE8 /* GZTableViewCell.xib */,
+			);
+			path = Works;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F77DE27720429D0B006C3020 /* GZWork */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F77DE28E20429D0B006C3020 /* Build configuration list for PBXNativeTarget "GZWork" */;
+			buildPhases = (
+				F77DE27420429D0B006C3020 /* Sources */,
+				F77DE27520429D0B006C3020 /* Frameworks */,
+				F77DE27620429D0B006C3020 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GZWork;
+			productName = GZWork;
+			productReference = F77DE27820429D0B006C3020 /* GZWork.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F77DE27020429D0B006C3020 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = tim;
+				TargetAttributes = {
+					F77DE27720429D0B006C3020 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F77DE27320429D0B006C3020 /* Build configuration list for PBXProject "GZWork" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F77DE26F20429D0B006C3020;
+			productRefGroup = F77DE27920429D0B006C3020 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F77DE27720429D0B006C3020 /* GZWork */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F77DE27620429D0B006C3020 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F766E06420439E5C00F09BE8 /* GZTableViewCell.xib in Resources */,
+				F77DE28820429D0B006C3020 /* LaunchScreen.storyboard in Resources */,
+				F77DE28520429D0B006C3020 /* Assets.xcassets in Resources */,
+				F77DE28320429D0B006C3020 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F77DE27420429D0B006C3020 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F766E06320439E5C00F09BE8 /* GZTableViewCell.m in Sources */,
+				F77DE28020429D0B006C3020 /* ViewController.m in Sources */,
+				F77DE29420429D6C006C3020 /* GZViewController.m in Sources */,
+				F77DE29A2042A067006C3020 /* GZCeshiViewController.m in Sources */,
+				F77DE29720429D8D006C3020 /* GZTableView.m in Sources */,
+				F77DE28B20429D0B006C3020 /* main.m in Sources */,
+				F77DE27D20429D0B006C3020 /* AppDelegate.m in Sources */,
+				F766E05F20439A8900F09BE8 /* NSObject+GZModelAndClick.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F77DE28120429D0B006C3020 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F77DE28220429D0B006C3020 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F77DE28620429D0B006C3020 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F77DE28720429D0B006C3020 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F77DE28C20429D0B006C3020 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F77DE28D20429D0B006C3020 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F77DE28F20429D0B006C3020 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GZWork/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.GZWork;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F77DE29020429D0B006C3020 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GZWork/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.GZWork;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F77DE27320429D0B006C3020 /* Build configuration list for PBXProject "GZWork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F77DE28C20429D0B006C3020 /* Debug */,
+				F77DE28D20429D0B006C3020 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F77DE28E20429D0B006C3020 /* Build configuration list for PBXNativeTarget "GZWork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F77DE28F20429D0B006C3020 /* Debug */,
+				F77DE29020429D0B006C3020 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F77DE27020429D0B006C3020 /* Project object */;
+}
