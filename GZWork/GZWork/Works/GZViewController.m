@@ -9,7 +9,6 @@
 #import "GZViewController.h"
 #import "GZTableView.h"
 #import "GZTableViewCell.h"
-
 @interface GZViewController ()
 
 @end
@@ -32,6 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.gzTableView.frame =self.view.bounds;
     self.gzTableView.gzDataSource =@[@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1,@1].mutableCopy;
 }
