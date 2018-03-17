@@ -21,6 +21,9 @@
 		F77DE29420429D6C006C3020 /* GZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77DE29320429D6C006C3020 /* GZViewController.m */; };
 		F77DE29720429D8D006C3020 /* GZTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F77DE29620429D8D006C3020 /* GZTableView.m */; };
 		F77DE29A2042A067006C3020 /* GZCeshiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77DE2992042A067006C3020 /* GZCeshiViewController.m */; };
+		F7A376D3205CB22B003058C2 /* CEshiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A376D1205CB22B003058C2 /* CEshiTableViewCell.m */; };
+		F7A376D4205CB22B003058C2 /* CEshiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7A376D2205CB22B003058C2 /* CEshiTableViewCell.xib */; };
+		F7A376D7205CB5A0003058C2 /* HHTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A376D6205CB5A0003058C2 /* HHTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,11 @@
 		F77DE29620429D8D006C3020 /* GZTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZTableView.m; sourceTree = "<group>"; };
 		F77DE2982042A067006C3020 /* GZCeshiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZCeshiViewController.h; sourceTree = "<group>"; };
 		F77DE2992042A067006C3020 /* GZCeshiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZCeshiViewController.m; sourceTree = "<group>"; };
+		F7A376D0205CB22B003058C2 /* CEshiTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEshiTableViewCell.h; sourceTree = "<group>"; };
+		F7A376D1205CB22B003058C2 /* CEshiTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEshiTableViewCell.m; sourceTree = "<group>"; };
+		F7A376D2205CB22B003058C2 /* CEshiTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CEshiTableViewCell.xib; sourceTree = "<group>"; };
+		F7A376D5205CB5A0003058C2 /* HHTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHTableViewCell.h; sourceTree = "<group>"; };
+		F7A376D6205CB5A0003058C2 /* HHTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +148,11 @@
 				F766E06020439E5C00F09BE8 /* GZTableViewCell.h */,
 				F766E06120439E5C00F09BE8 /* GZTableViewCell.m */,
 				F766E06220439E5C00F09BE8 /* GZTableViewCell.xib */,
+				F7A376D0205CB22B003058C2 /* CEshiTableViewCell.h */,
+				F7A376D1205CB22B003058C2 /* CEshiTableViewCell.m */,
+				F7A376D2205CB22B003058C2 /* CEshiTableViewCell.xib */,
+				F7A376D5205CB5A0003058C2 /* HHTableViewCell.h */,
+				F7A376D6205CB5A0003058C2 /* HHTableViewCell.m */,
 			);
 			path = Works;
 			sourceTree = "<group>";
@@ -238,6 +251,7 @@
 				F766E06420439E5C00F09BE8 /* GZTableViewCell.xib in Resources */,
 				F77DE28820429D0B006C3020 /* LaunchScreen.storyboard in Resources */,
 				F77DE28520429D0B006C3020 /* Assets.xcassets in Resources */,
+				F7A376D4205CB22B003058C2 /* CEshiTableViewCell.xib in Resources */,
 				F77DE28320429D0B006C3020 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,12 +274,14 @@
 			files = (
 				F766E06320439E5C00F09BE8 /* GZTableViewCell.m in Sources */,
 				F77DE28020429D0B006C3020 /* ViewController.m in Sources */,
+				F7A376D3205CB22B003058C2 /* CEshiTableViewCell.m in Sources */,
 				F77DE29420429D6C006C3020 /* GZViewController.m in Sources */,
 				F77DE29A2042A067006C3020 /* GZCeshiViewController.m in Sources */,
 				F77DE29720429D8D006C3020 /* GZTableView.m in Sources */,
 				F77DE28B20429D0B006C3020 /* main.m in Sources */,
 				F77DE27D20429D0B006C3020 /* AppDelegate.m in Sources */,
 				F766E05F20439A8900F09BE8 /* NSObject+GZModelAndClick.m in Sources */,
+				F7A376D7205CB5A0003058C2 /* HHTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
-
 @interface GZTableView : UITableView<UITableViewDataSource>
 ///列表数据
 @property(nonatomic,strong) NSMutableArray * gzDataSource;
@@ -21,7 +19,7 @@
 @property(nonatomic,strong) NSArray<Class> * registerCellClass;
 
 ///使用哪一个Cell
-@property(nonatomic,copy) NSString *(^cellId)(NSIndexPath * indexPath,NSArray <NSString *>*registerCellClass);
+@property(nonatomic,copy) NSString *(^cellId)(NSIndexPath * indexPath,NSArray <NSDictionary <NSString *,Class> *>*registerCellClass);
 
 ///头部标题
 @property(nonatomic,assign) NSMutableArray <NSString *>* headerTitle;

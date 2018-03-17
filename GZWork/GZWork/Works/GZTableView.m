@@ -10,7 +10,7 @@
 #import "NSObject+GZModelAndClick.h"
 
 @interface GZTableView()
-@property(nonatomic,strong) NSArray<NSString *> * registerCellId;
+@property(nonatomic,strong) NSArray<NSDictionary <NSString *,Class>*> * registerCellId;
 @end
 
 
@@ -39,22 +39,27 @@
 
 -(void)setRegisterCellClass:(NSArray<Class> *)registerCellClass{
     _registerCellClass = registerCellClass;
-    __block NSMutableArray * arrayRegister =@[].mutableCopy;
-    [registerCellClass enumerateObjectsUsingBlock:^(Class  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj isExistenceXib]) {
-            NSArray<UITableViewCell *> * array = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(obj) owner:self options:nil];
-            [array enumerateObjectsUsingBlock:^(UITableViewCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                [self registerNib:[UINib nibWithNibName:NSStringFromClass(obj.class) bundle:nil] forCellReuseIdentifier:obj.reuseIdentifier];
-                [arrayRegister addObject:obj.reuseIdentifier];
-            }];
-            
-            
+    __block NSMutableArray * dicRegister =@[].mutableCopy;
+    [registerCellClass enumerateObjectsUsingBlock:^(Class  _Nonnull objCell, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([objCell isExistenceXib]) {
+            NSArray<UITableViewCell *> * array = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(objCell) owner:self options:nil];
+            if (array.count >1) {
+                [array enumerateObjectsUsingBlock:^(UITableViewCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    [dicRegister addObject:@{obj.reuseIdentifier:obj.class}];
+                }];
+            }else{
+                [array enumerateObjectsUsingBlock:^(UITableViewCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    [self registerNib:[UINib nibWithNibName:NSStringFromClass(obj.class) bundle:nil] forCellReuseIdentifier:obj.reuseIdentifier?:NSStringFromClass(obj.class)];
+                    [dicRegister addObject:@{obj.reuseIdentifier?:NSStringFromClass(obj.class):obj.class}];
+                }];
+            }
+           
         }else{
-            [self registerClass:obj forCellReuseIdentifier:NSStringFromClass(obj)];
-            [arrayRegister addObject:NSStringFromClass(obj)];
+            [self registerClass:objCell forCellReuseIdentifier:NSStringFromClass(objCell)];
+            [dicRegister addObject:@{NSStringFromClass(objCell):objCell.class}];
         }
     }];
-    self.registerCellId = arrayRegister.copy;
+    self.registerCellId = dicRegister.copy;
    
 }
 -(void)setGzDataSource:(NSMutableArray *)gzDataSource{
@@ -68,22 +73,29 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell * cell;
-    [_registerCellClass enumerateObjectsUsingBlock:^(Class  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSArray<UITableViewCell *> * array = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(obj) owner:self options:nil];
-        if (array.count >1) {
-            [array enumerateObjectsUsingBlock:^(UITableViewCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                
-            }];
-//           cell = [[NSBundle mainBundle] loadNibNamed:@"identifier" owner:nil options:nil][x]
+    NSString * identifier =_registerCellClass.count ==1?[_registerCellClass.firstObject isExistenceXib]?!self.cellId?NSStringFromClass(_registerCellClass.firstObject):self.cellId(indexPath,self.registerCellId):NSStringFromClass(_registerCellClass.firstObject):!self.cellId?NSStringFromClass([UITableViewCell class]):self.cellId(indexPath,self.registerCellId);
+    
+    UITableViewCell * cell =[tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        Class className =nil;
+        NSArray * arrayClasss =[self.registerCellId mutableArrayValueForKeyPath:identifier];
+        for (Class name in arrayClasss) {
+            if (![name isKindOfClass:NSNull.class]) {
+                className =name;
+            }
         }
-        
-        
-    }];
-  
-    
-    cell =[tableView dequeueReusableCellWithIdentifier:_registerCellClass.count ==1?[_registerCellClass.firstObject isExistenceXib]?!self.cellId?NSStringFromClass(_registerCellClass.firstObject):self.cellId(indexPath,self.registerCellId):NSStringFromClass(_registerCellClass.firstObject):!self.cellId?NSStringFromClass([UITableViewCell class]):self.cellId(indexPath,self.registerCellId) forIndexPath:indexPath];
-    
+        if ([className isKindOfClass:NSNull.class]) {
+            cell =[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass(UITableViewCell.class)];
+        }
+        if ([className isExistenceXib]) {
+            NSArray<UITableViewCell *> * array = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(className.class) owner:self options:nil];
+            for (int i = 0; i < array.count; i++) {
+                if ([identifier isEqualToString:array[i].reuseIdentifier]) {
+                    cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(className.class) owner:self options:nil] objectAtIndex:i];
+                }
+            }
+        }
+    }
     cell.textLabel.text =@(indexPath.row).stringValue;
     cell.gzModel = self.gzDataSource[indexPath.row];
     cell.gzIndexPath =indexPath;
@@ -103,15 +115,13 @@
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     NSString * asser =[NSString stringWithFormat:@"%s___%d___数据异常",__func__,__LINE__];
-//    NSAssert(section <= self.headerTitle.count,asser); return nil;
-//    return self.gzDataSource[section];
-    return nil;
+    NSAssert(section <= self.headerTitle.count,asser); return nil;
+    return self.headerTitle[section];
 }
 - (nullable NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
     NSString * asser =[NSString stringWithFormat:@"%s___%d___数据异常",__func__,__LINE__];
-//    NSAssert(section <= self.footerTitle.count, asser); return nil;
-//    return self.gzDataSource[section];
-    return nil;
+    NSAssert(section <= self.footerTitle.count, asser); return nil;
+    return self.headerTitle[section];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -131,7 +141,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-     NSLog(@"%s——————%d",__FUNCTION__,__LINE__);
     switch (editingStyle) {
         case UITableViewCellEditingStyleNone:
             
@@ -148,7 +157,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
-    NSLog(@"%s——————%d",__FUNCTION__,__LINE__);
     [self exchangeSubviewAtIndex:sourceIndexPath.row withSubviewAtIndex:sourceIndexPath.row];
 }
 
