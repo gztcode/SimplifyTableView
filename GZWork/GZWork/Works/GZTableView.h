@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GZTableView : UITableView<UITableViewDataSource>
+@interface GZTableView : UITableView<UITableViewDataSource,UITableViewDelegate>
 ///列表数据
 @property(nonatomic,strong) NSMutableArray * gzDataSource;
 

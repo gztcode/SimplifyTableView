@@ -13,18 +13,9 @@
 
 @implementation GZTableView(gzData)
 +(void)load{
-    Method originalM = class_getInstanceMethod([self class], @selector(setDataSource:));
-    Method exchangeM = class_getInstanceMethod([self class], @selector(setGz_dataSource:));
-    method_exchangeImplementations(originalM, exchangeM);
-   
-    [[self.class gz_getProtocolList] enumerateObjectsUsingBlock:^(NSString * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        Class classProtocol = NSClassFromString(obj);
-        NSLog(@"%@",[classProtocol gz_getInstanceMethodList]);
-        
-    }];
-   
-    
-    
+    Method setDataSource = class_getInstanceMethod([self class], @selector(setDataSource:));
+    Method setGz_dataSource = class_getInstanceMethod([self class], @selector(setGz_dataSource:));
+    method_exchangeImplementations(setDataSource, setGz_dataSource);
 }
 
 -(void)setGz_dataSource:(NSObject *)className{
@@ -34,6 +25,7 @@
         [self setGz_dataSource:self];
     }
 }
+
 @end
 
 
@@ -64,7 +56,6 @@
 - (void)setup{
     [self registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     self.dataSource=self;
-    
 }
 
 -(void)setRegisterCellClass:(NSArray<Class> *)registerCellClass{
@@ -196,8 +187,6 @@
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
     return UITableViewCellEditingStyleNone;
 }
-
-
 
 
 
