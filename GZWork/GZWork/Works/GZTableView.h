@@ -12,8 +12,11 @@
 ///列表数据
 @property(nonatomic,strong) NSMutableArray * gzDataSource;
 
-///是否为不同样式Cell
+///是否为不同样式Cell (必须实现cellIdBlock)
 @property(nonatomic,assign) BOOL isFigure;
+
+///是否分组
+@property(nonatomic,assign) BOOL isGroup;
 
 ///注册cell
 @property(nonatomic,strong) NSArray<Class> * registerCellClass;

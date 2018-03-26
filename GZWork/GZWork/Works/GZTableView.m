@@ -8,6 +8,34 @@
 
 #import "GZTableView.h"
 #import "NSObject+GZModelAndClick.h"
+#import <objc/message.h>
+#import "NSObject+Runtime.h"
+
+@implementation GZTableView(gzData)
++(void)load{
+    Method originalM = class_getInstanceMethod([self class], @selector(setDataSource:));
+    Method exchangeM = class_getInstanceMethod([self class], @selector(setGz_dataSource:));
+    method_exchangeImplementations(originalM, exchangeM);
+   
+    [[self.class gz_getProtocolList] enumerateObjectsUsingBlock:^(NSString * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        Class classProtocol = NSClassFromString(obj);
+        NSLog(@"%@",[classProtocol gz_getInstanceMethodList]);
+        
+    }];
+   
+    
+    
+}
+
+-(void)setGz_dataSource:(NSObject *)className{
+    if ([className.class instancesRespondToSelector:@selector(tableView:numberOfRowsInSection:)] && [className.class instancesRespondToSelector:@selector(tableView:cellForRowAtIndexPath:)]) {
+         [self setGz_dataSource:className];
+    }else{
+        [self setGz_dataSource:self];
+    }
+}
+@end
+
 
 @interface GZTableView()
 @property(nonatomic,strong) NSArray<NSDictionary <NSString *,Class>*> * registerCellId;
@@ -15,6 +43,7 @@
 
 
 @implementation GZTableView
+
 - (instancetype)init
 {
     self = [super init];
@@ -35,6 +64,7 @@
 - (void)setup{
     [self registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     self.dataSource=self;
+    
 }
 
 -(void)setRegisterCellClass:(NSArray<Class> *)registerCellClass{
@@ -73,8 +103,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSString * identifier =_registerCellClass.count ==1?[_registerCellClass.firstObject isExistenceXib]?!self.cellId?NSStringFromClass(_registerCellClass.firstObject):self.cellId(indexPath,self.registerCellId):NSStringFromClass(_registerCellClass.firstObject):!self.cellId?NSStringFromClass([UITableViewCell class]):self.cellId(indexPath,self.registerCellId);
+    NSString * identifier = _isFigure?[_registerCellClass.firstObject isExistenceXib]?!self.cellId?NSStringFromClass(_registerCellClass.firstObject):self.cellId(indexPath,self.registerCellId):NSStringFromClass(_registerCellClass.firstObject):NSStringFromClass(_registerCellClass.firstObject);
     
+   
     UITableViewCell * cell =[tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         Class className =nil;
@@ -96,7 +127,6 @@
             }
         }
     }
-    cell.textLabel.text =@(indexPath.row).stringValue;
     cell.gzModel = self.gzDataSource[indexPath.row];
     cell.gzIndexPath =indexPath;
     __weak typeof(self) weakSelf =self;
@@ -107,20 +137,16 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    if (_isFigure) {
+    if (_isGroup) {
        return self.gzDataSource.count;
     }
-    return 1;
+    return DOMAIN;
 }
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    NSString * asser =[NSString stringWithFormat:@"%s___%d___数据异常",__func__,__LINE__];
-    NSAssert(section <= self.headerTitle.count,asser); return nil;
     return self.headerTitle[section];
 }
 - (nullable NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
-    NSString * asser =[NSString stringWithFormat:@"%s___%d___数据异常",__func__,__LINE__];
-    NSAssert(section <= self.footerTitle.count, asser); return nil;
     return self.headerTitle[section];
 }
 
@@ -131,9 +157,15 @@
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath{
     return _isMove;
 }
+- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath{
+    return NO;
+}
 
 - (nullable NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView{
     return _indexTitles;
+}
+- (nullable NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index{
@@ -157,8 +189,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
-    [self exchangeSubviewAtIndex:sourceIndexPath.row withSubviewAtIndex:sourceIndexPath.row];
+    [self.gzDataSource exchangeObjectAtIndex:sourceIndexPath.row withObjectAtIndex:destinationIndexPath.row];
+    [self exchangeSubviewAtIndex:sourceIndexPath.row withSubviewAtIndex:destinationIndexPath.row];
 }
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return UITableViewCellEditingStyleNone;
+}
+
 
 
 
