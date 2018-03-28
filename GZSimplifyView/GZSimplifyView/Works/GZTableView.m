@@ -11,18 +11,18 @@
 #import <objc/message.h>
 #import "NSObject+Runtime.h"
 
-@implementation GZTableView(gzData)
+@implementation UITableView(Exchange_method)
 +(void)load{
     Method setDataSource = class_getInstanceMethod([self class], @selector(setDataSource:));
-    Method setGz_dataSource = class_getInstanceMethod([self class], @selector(setGz_dataSource:));
-    method_exchangeImplementations(setDataSource, setGz_dataSource);
+    Method exchange_method = class_getInstanceMethod([self class], @selector(exchange_method:));
+    method_exchangeImplementations(setDataSource, exchange_method);
 }
 
--(void)setGz_dataSource:(NSObject *)className{
+-(void)exchange_method:(NSObject *)className{
     if ([className.class instancesRespondToSelector:@selector(tableView:numberOfRowsInSection:)] && [className.class instancesRespondToSelector:@selector(tableView:cellForRowAtIndexPath:)]) {
-         [self setGz_dataSource:className];
+        [self exchange_method:className];
     }else{
-        [self setGz_dataSource:self];
+        [self exchange_method:self];
     }
 }
 
