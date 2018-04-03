@@ -13,9 +13,20 @@
 
 @implementation UITableView(Exchange_method)
 +(void)load{
+    
     Method setDataSource = class_getInstanceMethod([self class], @selector(setDataSource:));
     Method exchange_method = class_getInstanceMethod([self class], @selector(exchange_method:));
     method_exchangeImplementations(setDataSource, exchange_method);
+    
+    Method setDelegate = class_getInstanceMethod([self class], @selector(setDelegate:));
+    Method exchange_Delegatemethod = class_getInstanceMethod([self class], @selector(exchange_Delegatemethod:));
+    method_exchangeImplementations(setDelegate, exchange_Delegatemethod);
+    
+    Method getDelegate = class_getInstanceMethod([self class], NSSelectorFromString(@"dategale"));
+    Method getDelegatemethod = class_getInstanceMethod([self class], @selector(get_elegatemethod));
+    method_exchangeImplementations(getDelegate, getDelegatemethod);
+    
+    
 }
 
 -(void)exchange_method:(NSObject *)className{
@@ -25,6 +36,17 @@
         [self exchange_method:self];
     }
 }
+
+-(void)exchange_Delegatemethod:(NSObject *)className{
+    NSLog(@"%s",__func__);
+    [self exchange_Delegatemethod:className];
+}
+
+-(void)get_elegatemethod{
+    NSLog(@"%s",__func__);
+    [self get_elegatemethod];
+}
+
 
 @end
 

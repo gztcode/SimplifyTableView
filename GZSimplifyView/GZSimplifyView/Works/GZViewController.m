@@ -12,7 +12,7 @@
 #import "CEshiTableViewCell.h"
 #import "HHTableViewCell.h"
 
-@interface GZViewController ()<UITableViewDataSource>
+@interface GZViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
 
@@ -40,6 +40,7 @@
         _gzTableView.registerCellClass =@[GZTableViewCell.class,CEshiTableViewCell.class,HHTableViewCell.class];
         //判断是否自己实现数据源协议
         _gzTableView.dataSource =self; //有加入想要防止数据源崩溃
+        _gzTableView.delegate =self;
         [self.view addSubview:_gzTableView];
     }
     return _gzTableView;
@@ -71,6 +72,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
 
 
 
