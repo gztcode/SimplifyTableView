@@ -111,6 +111,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (_isGroup) {
+        return (NSInteger)[self.gzDataSource[section] valueForKeyPath:@"count"];
+    }
     return self.gzDataSource.count;
 }
 
