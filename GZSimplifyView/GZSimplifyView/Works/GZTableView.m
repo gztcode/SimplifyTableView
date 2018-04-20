@@ -143,7 +143,11 @@
             }
         }
     }
-    cell.gzModel = self.gzDataSource[indexPath.row];
+    if (_isGroup) {
+        cell.gzModel =self.gzDataSource[indexPath.section][indexPath.row];
+    }else{
+        cell.gzModel = self.gzDataSource[indexPath.row];
+    }
     cell.gzIndexPath =indexPath;
     __weak typeof(self) weakSelf =self;
     cell.gzClick = ^(id click, NSIndexPath *gzIndexPath) {
