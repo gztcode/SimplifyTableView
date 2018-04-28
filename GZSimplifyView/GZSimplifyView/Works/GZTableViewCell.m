@@ -8,6 +8,7 @@
 
 #import "GZTableViewCell.h"
 #import "NSObject+GZModelAndClick.h"
+#import "UIView+GZAdd.h"
 
 @implementation GZTableViewCell
 
@@ -21,7 +22,10 @@
 }
 
 -(void)setGzIndexPath:(NSIndexPath *)gzIndexPath{
-    
+    if (self.gzModel.gzCellHeight !=0) {
+        return;
+    }
+    self.gzModel.gzCellHeight = [self.contentView getViewBottom];
 }
 
 

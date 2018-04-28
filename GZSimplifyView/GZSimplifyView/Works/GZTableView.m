@@ -10,6 +10,7 @@
 #import "NSObject+GZModelAndClick.h"
 #import <objc/message.h>
 #import "NSObject+Runtime.h"
+#import "UIView+GZAdd.h"
 
 @implementation UITableView(Exchange_method)
 +(void)load{
@@ -22,11 +23,6 @@
     Method exchange_Delegatemethod = class_getInstanceMethod([self class], @selector(exchange_Delegatemethod:));
     method_exchangeImplementations(setDelegate, exchange_Delegatemethod);
     
-    Method getDelegate = class_getInstanceMethod([self class], NSSelectorFromString(@"dategale"));
-    Method getDelegatemethod = class_getInstanceMethod([self class], @selector(get_elegatemethod));
-    method_exchangeImplementations(getDelegate, getDelegatemethod);
-    
-    
 }
 
 -(void)exchange_method:(NSObject *)className{
@@ -38,13 +34,11 @@
 }
 
 -(void)exchange_Delegatemethod:(NSObject *)className{
-    NSLog(@"%s",__func__);
-    [self exchange_Delegatemethod:className];
-}
-
--(void)get_elegatemethod{
-    NSLog(@"%s",__func__);
-    [self get_elegatemethod];
+    if ([className.class instancesRespondToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
+        [self exchange_Delegatemethod:className];
+    }else{
+        [self exchange_Delegatemethod:self];
+    }
 }
 
 
@@ -112,7 +106,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (_isGroup) {
-        return (NSInteger)[self.gzDataSource[section] valueForKeyPath:@"count"];
+        return ((NSArray *)self.gzDataSource[section]).count;
     }
     return self.gzDataSource.count;
 }
@@ -143,12 +137,15 @@
             }
         }
     }
+    //设置索引
+    cell.gzIndexPath =indexPath;
+    //设置数据
     if (_isGroup) {
         cell.gzModel =self.gzDataSource[indexPath.section][indexPath.row];
     }else{
         cell.gzModel = self.gzDataSource[indexPath.row];
     }
-    cell.gzIndexPath =indexPath;
+    
     __weak typeof(self) weakSelf =self;
     cell.gzClick = ^(id click, NSIndexPath *gzIndexPath) {
         !weakSelf.gzClick?:weakSelf.gzClick(click,indexPath);
@@ -163,6 +160,16 @@
     return DOMAIN;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    CGFloat cellHeight =0;
+    if (_isGroup) {
+        cellHeight =[((NSObject *)self.gzDataSource[indexPath.section][indexPath.row]).gzCellHeightStr floatValue];;
+    }else{
+        cellHeight =[((NSObject *)self.gzDataSource[indexPath.row]).gzCellHeightStr floatValue];
+    }
+    return cellHeight!=0?cellHeight:44;
+}
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return self.headerTitle[section];
 }
@@ -216,7 +223,6 @@
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
     return UITableViewCellEditingStyleNone;
 }
-
 
 
 

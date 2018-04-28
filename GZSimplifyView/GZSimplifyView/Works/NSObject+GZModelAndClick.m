@@ -28,14 +28,38 @@
 -(void)setGzClick:(void (^)(id, NSIndexPath *))gzClick{
     objc_setAssociatedObject(self, @selector(gzClick), gzClick, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
+
 -(void (^)(id, NSIndexPath *))gzClick{
     return objc_getAssociatedObject(self, _cmd);
 }
 
+-(void)setGzCellHeight:(CGFloat)gzCellHeight{
+    objc_setAssociatedObject(self, @selector(gzCellHeight), [NSNumber numberWithFloat:gzCellHeight], OBJC_ASSOCIATION_ASSIGN);
+}
+
+-(CGFloat)gzCellHeight{
+    return [objc_getAssociatedObject(self, _cmd) floatValue];
+}
+
+-(NSString *)gzCellHeightStr{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+-(void)setGzCellHeightStr:(NSString *)gzCellHeightStr{
+    objc_setAssociatedObject(self, @selector(gzCellHeightStr), gzCellHeightStr, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+-(NSString *)gzStr{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+-(void)setGzStr:(NSString *)gzStr{
+    objc_setAssociatedObject(self, @selector(gzStr), gzStr, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
 
 
 - (BOOL)isExistenceXib{
     return [[NSBundle mainBundle] pathForResource:NSStringFromClass(self.class) ofType:@"nib"].length > 0;
 }
+
 
 @end
