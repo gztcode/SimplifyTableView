@@ -13,15 +13,12 @@
 #import "UIView+GZAdd.h"
 
 @implementation UITableView(Exchange_method)
+
 +(void)load{
     
     Method setDataSource = class_getInstanceMethod([self class], @selector(setDataSource:));
     Method exchange_method = class_getInstanceMethod([self class], @selector(exchange_method:));
     method_exchangeImplementations(setDataSource, exchange_method);
-    
-    Method setDelegate = class_getInstanceMethod([self class], @selector(setDelegate:));
-    Method exchange_Delegatemethod = class_getInstanceMethod([self class], @selector(exchange_Delegatemethod:));
-    method_exchangeImplementations(setDelegate, exchange_Delegatemethod);
     
 }
 
@@ -33,13 +30,6 @@
     }
 }
 
--(void)exchange_Delegatemethod:(NSObject *)className{
-    if ([className.class instancesRespondToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
-        [self exchange_Delegatemethod:className];
-    }else{
-        [self exchange_Delegatemethod:self];
-    }
-}
 
 
 @end
@@ -160,16 +150,7 @@
     return DOMAIN;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    CGFloat cellHeight =0;
-    if (_isGroup) {
-        cellHeight =[((NSObject *)self.gzDataSource[indexPath.section][indexPath.row]).gzCellHeightStr floatValue];;
-    }else{
-        cellHeight =[((NSObject *)self.gzDataSource[indexPath.row]).gzCellHeightStr floatValue];
-    }
-    return cellHeight!=0?cellHeight:44;
-}
+
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return self.headerTitle[section];
 }

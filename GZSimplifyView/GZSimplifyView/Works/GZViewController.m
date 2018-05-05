@@ -14,6 +14,7 @@
 #import "NSObject+GZModelAndClick.h"
 #import "WBTimelineItem.h"
 #import "YYKit.h"
+#import "GZNetWorking.h"
 
 @interface GZViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -24,6 +25,8 @@
 -(GZTableView *)gzTableView{
     if (!_gzTableView) {
         _gzTableView =[[GZTableView alloc] init];
+        ///分组和编辑设置
+        
 //        _gzTableView.isFigure =YES;
 //        _gzTableView.isGroup =YES;
 //        _gzTableView.isEditing =YES;
@@ -42,7 +45,7 @@
         };
         _gzTableView.registerCellClass =@[HHTableViewCell.class,GZTableViewCell.class,CEshiTableViewCell.class,HHTableViewCell.class];
         //判断是否自己实现数据源协议
-        _gzTableView.dataSource =self; //有加入想要防止数据源崩溃
+        _gzTableView.dataSource =self; 
         _gzTableView.delegate =self;
         [self.view addSubview:_gzTableView];
     }
@@ -62,7 +65,7 @@
             for (uint i =0; i <df; i++) {
                 [arrasr addObject:@(arc4random())];
             }
-            obj.gzStr =[arrasr componentsJoinedByString:@""];
+            
             [arrays addObject:obj];
         }
         [array addObject:arrays];
@@ -73,6 +76,13 @@
     WBTimelineItem *item = [WBTimelineItem modelWithJSON:data];
     self.gzTableView.gzDataSource =[item.statuses modelCopy];
     
+    
+    ///网络测试
+    [GZNetWorking gzGetNetWorkingDataList:nil success:^(id responseObject) {
+        ///数据
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
     
     self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc] initWithTitle:@"bian'ji" style:UIBarButtonItemStyleDone target:self action:@selector(ceshi)];
     self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc] initWithTitle:@"结束" style:UIBarButtonItemStyleDone target:self action:@selector(ceshis)];
@@ -92,11 +102,15 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    self.gzCellHeight =20;
-    NSLog(@"%f",self.gzCellHeight);
-    
+    CGFloat cellHeight =0;
+    if (self.gzTableView.isGroup) {
+        cellHeight =[((NSObject *)self.gzTableView.gzDataSource[indexPath.section][indexPath.row]).gzCellHeightStr floatValue];;
+    }else{
+        cellHeight =[((NSObject *)self.gzTableView.gzDataSource[indexPath.row]).gzCellHeightStr floatValue];
+    }
+    return cellHeight!=0?cellHeight:44;
 }
 - (NSData *)dataNamed:(NSString *)name {
     NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@""];

@@ -23,6 +23,7 @@
 ///缓存高度
 @property(nonatomic,copy) NSString *gzCellHeightStr;
 
+///设置文字
 @property(nonatomic,copy) NSString *gzStr;
 
 ///点击回调

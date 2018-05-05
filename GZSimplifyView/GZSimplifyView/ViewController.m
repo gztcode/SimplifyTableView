@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "GZCeshiViewController.h"
 #import "UIResponder+SubVIews.h"
 
 @interface ViewController ()
