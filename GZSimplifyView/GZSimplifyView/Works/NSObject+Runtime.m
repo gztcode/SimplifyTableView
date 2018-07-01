@@ -50,6 +50,7 @@
         }
         @catch (NSException *exception) {}
     }
+    free(ivars);
     return [array copy];
 }
 + (NSArray *)gz_getPropertyList
@@ -111,7 +112,7 @@
         const char *protocolName = protocol_getName(protocol);
         [mutableList addObject:[NSString stringWithUTF8String:protocolName]];
     }
-    
+    free(protocolList);
     return [NSArray arrayWithArray:mutableList];
 }
 
