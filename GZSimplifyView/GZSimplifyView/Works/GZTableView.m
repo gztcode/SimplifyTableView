@@ -58,6 +58,14 @@
     }
     return self;
 }
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
 
 - (void)setup{
     [self registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
@@ -96,7 +104,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (_isGroup) {
-        return ((NSArray *)self.gzDataSource[section]).count;
+        if ([self.gzDataSource[section] isKindOfClass:NSArray.class]) {
+            return ((NSArray *)self.gzDataSource[section]).count;
+        }
+        return 0;
     }
     return self.gzDataSource.count;
 }
@@ -131,7 +142,11 @@
     cell.gzIndexPath =indexPath;
     //设置数据
     if (_isGroup) {
-        cell.gzModel =self.gzDataSource[indexPath.section][indexPath.row];
+         if ([self.gzDataSource[indexPath.section] isKindOfClass:NSArray.class]) {
+            cell.gzModel =self.gzDataSource[indexPath.section][indexPath.row];
+        }else{
+            cell.gzModel = self.gzDataSource[indexPath.section];
+        }
     }else{
         cell.gzModel = self.gzDataSource[indexPath.row];
     }

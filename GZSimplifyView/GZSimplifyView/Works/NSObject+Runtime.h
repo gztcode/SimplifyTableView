@@ -27,6 +27,9 @@
 /** 获取协议列表，包括.h .m 和分类里的 */
 + (NSArray *)gz_getProtocolList;
 
+/** 获取协议方法列表*/
++ (NSArray *)gz_getProtocolMethodName:(NSString *)methodName;
+
 /** 添加一个方法 */
 + (void)addMethod:(SEL)methodSel methodImp:(SEL)methodImp;
 

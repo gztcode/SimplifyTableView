@@ -116,6 +116,22 @@
     return [NSArray arrayWithArray:mutableList];
 }
 
+
++ (NSArray *)gz_getProtocolMethodName:(NSString *)methodName{
+    unsigned int count = 0;
+    const char *protocolName = methodName.UTF8String;
+    Protocol *protocol = objc_getProtocol(protocolName);
+    struct objc_method_description *methods = NULL;
+    methods = protocol_copyMethodDescriptionList(protocol, NO, YES, &count);
+    NSMutableArray *mutableList = [NSMutableArray arrayWithCapacity:count];
+    for (unsigned int i = 0; i < count; i++ )
+    {
+        [mutableList addObject:NSStringFromSelector(methods[i].name)];
+    }
+    free(methods);
+    return mutableList;
+}
+
 + (void)addMethod:(SEL)methodSel methodImp:(SEL)methodImp;
 {
     Method method = class_getInstanceMethod(self, methodImp);
@@ -124,11 +140,15 @@
     class_addMethod(self, methodSel, methodIMP, types);
 }
 
+
 + (void)gz_swapMethod:(SEL)originMethod currentMethod:(SEL)currentMethod;
 {
     Method firstMethod = class_getInstanceMethod(self, originMethod);
     Method secondMethod = class_getInstanceMethod(self, currentMethod);
-    method_exchangeImplementations(firstMethod, secondMethod);
+    if ([self respondsToSelector:currentMethod]) {
+        method_exchangeImplementations(firstMethod, secondMethod);
+    }
+    
 }
 
 + (void)gz_swapClassMethod:(SEL)originMethod currentMethod:(SEL)currentMethod;
