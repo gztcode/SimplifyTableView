@@ -8,7 +8,9 @@
 
 #import "NSObject+GZNet.h"
 #import <objc/message.h>
+#import "GZNetWorking.h"
 #import "NSObject+AFN.h"
+#import "NSObject+YYModel.h"
 
 
 NSMutableDictionary  * dicNetClassPath;
@@ -22,11 +24,15 @@ extern NSMutableDictionary  * dicNetClassPath;
 +(void)load{
     dicNetClassPath = @{
                         ///这里必须传入指定的类名
-                        NSStringFromClass(NSObject.class):[rootUrl stringByAppendingString:@"/api-sileo/v2/home-tournaments/popular/filter/"],
-                        NSStringFromClass(NSObject.class):[rootUrl stringByAppendingString:@"/api-sileo/profile/profile_following/filter/"],
+                        NSStringFromClass(NSObject.class):getAllUrl(@""),
+                        NSStringFromClass(NSObject.class):getAllUrl(@""),
                         NSStringFromClass(NSObject.class):[rootUrl stringByAppendingString:@"/api-sileo/profile/profile_followers/filter/"],
                         NSStringFromClass(NSObject.class):[rootUrl stringByAppendingString:@"/api-sileo/v2/user/profile/"]
                         }.mutableCopy;
+}
+
+NSString * getAllUrl(NSString * url){
+    return [rootUrl stringByAppendingString:url];
 }
 
 
@@ -40,13 +46,18 @@ extern NSMutableDictionary  * dicNetClassPath;
 
 + (void)gzGetNetWorking:(NSDictionary *)parameters success:(Success)success failure:(Failure)failure{
     [[self.class NetWokring] netWorking:GZNetWorkGET url:[self network] parameters:parameters constructingFile:nil success:success failure:failure];
+    
+    
 }
 + (void)gzPostNetWorking:(NSDictionary *)parameters success:(Success)success failure:(Failure)failure{
      [[self.class NetWokring] netWorking:GZNetWorkPOST url:[self network] parameters:parameters constructingFile:nil success:success failure:failure];
+    
+    
 }
 
 +(void)gzPostUploadNetWorking:(NSDictionary *)parameters constructingFile:(id)file success:(Success)success failure:(Failure)failure{
     [[self.class NetWokring] netWorking:GZNetWorkUPDATE url:[self network] parameters:parameters constructingFile:file success:success failure:failure];
+    
 }
 
 
@@ -57,6 +68,9 @@ extern NSMutableDictionary  * dicNetClassPath;
         NSLog(@"%@",dicNetClassPath);
         return;
     }
+    
+    [self popupWindow:&success failure:&failure];
+    
     switch (state) {
         case GZNetWorkGET:
              [self.class GET:url parameters:parameters success:success failure:failure];
@@ -76,5 +90,25 @@ extern NSMutableDictionary  * dicNetClassPath;
    
 }
 
+-(void)popupWindow:(Success*)success failure:(Failure*)failure{
+    if (!*success) {
+        *success = ^(id response){
+            GZNetWorking *model = [GZNetWorking modelWithJSON:response];
+            if (model.code != 200) {
+                NSLog(@"%@",model.msg);
+            }
+        };
+    }
+    if (!*failure) {
+        *failure = ^(NSURLSessionDataTask * task, NSError * error){
+            NSLog(@"++++++++++");
+        };
+    }
+    
+}
+
+
 
 @end
+
+

@@ -96,9 +96,10 @@
 		22361219209476B90089493A /* YYThreadSafeArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 223611C7209476B90089493A /* YYThreadSafeArray.m */; };
 		2236121A209476B90089493A /* YYReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 223611C8209476B90089493A /* YYReachability.m */; };
 		226F3BFC20941FA00014B1F8 /* UIView+GZAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 226F3BFB20941FA00014B1F8 /* UIView+GZAdd.m */; };
-		EBD86785209DA09500EE6B98 /* NSObject+AFN.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD86780209DA09400EE6B98 /* NSObject+AFN.m */; };
-		EBD86786209DA09500EE6B98 /* NSObject+GZNet.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD86782209DA09400EE6B98 /* NSObject+GZNet.m */; };
-		EBD86787209DA09500EE6B98 /* GZNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD86783209DA09400EE6B98 /* GZNetWorking.m */; };
+		EB861F8E22339E7F001C56F0 /* GZNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = EB861F8822339E7E001C56F0 /* GZNetWorking.m */; };
+		EB861F8F22339E7F001C56F0 /* NSObject+AFN.m in Sources */ = {isa = PBXBuildFile; fileRef = EB861F8B22339E7F001C56F0 /* NSObject+AFN.m */; };
+		EB861F9022339E7F001C56F0 /* NSObject+GZNet.m in Sources */ = {isa = PBXBuildFile; fileRef = EB861F8C22339E7F001C56F0 /* NSObject+GZNet.m */; };
+		EB861F9322339EB3001C56F0 /* GZTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB861F9122339EB2001C56F0 /* GZTableView.m */; };
 		EBD867AE209DA14B00EE6B98 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EBD86789209DA14B00EE6B98 /* LICENSE */; };
 		EBD867AF209DA14B00EE6B98 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EBD8678A209DA14B00EE6B98 /* README.md */; };
 		EBD867B0209DA14B00EE6B98 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD8678C209DA14B00EE6B98 /* UIProgressView+AFNetworking.m */; };
@@ -127,7 +128,6 @@
 		F77DE28820429D0B006C3020 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F77DE28620429D0B006C3020 /* LaunchScreen.storyboard */; };
 		F77DE28B20429D0B006C3020 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F77DE28A20429D0B006C3020 /* main.m */; };
 		F77DE29420429D6C006C3020 /* GZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77DE29320429D6C006C3020 /* GZViewController.m */; };
-		F77DE29720429D8D006C3020 /* GZTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F77DE29620429D8D006C3020 /* GZTableView.m */; };
 		F79E912C205F56B600CAA46D /* UIResponder+SubVIews.m in Sources */ = {isa = PBXBuildFile; fileRef = F79E912B205F56B600CAA46D /* UIResponder+SubVIews.m */; };
 		F7A376D3205CB22B003058C2 /* CEshiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A376D1205CB22B003058C2 /* CEshiTableViewCell.m */; };
 		F7A376D4205CB22B003058C2 /* CEshiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7A376D2205CB22B003058C2 /* CEshiTableViewCell.xib */; };
@@ -307,12 +307,14 @@
 		223611C9209476B90089493A /* YYSentinel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSentinel.h; sourceTree = "<group>"; };
 		226F3BFA20941FA00014B1F8 /* UIView+GZAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+GZAdd.h"; sourceTree = "<group>"; };
 		226F3BFB20941FA00014B1F8 /* UIView+GZAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+GZAdd.m"; sourceTree = "<group>"; };
-		EBD8677F209DA09400EE6B98 /* NSObject+GZNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+GZNet.h"; sourceTree = "<group>"; };
-		EBD86780209DA09400EE6B98 /* NSObject+AFN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AFN.m"; sourceTree = "<group>"; };
-		EBD86781209DA09400EE6B98 /* GZNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZNetWorking.h; sourceTree = "<group>"; };
-		EBD86782209DA09400EE6B98 /* NSObject+GZNet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GZNet.m"; sourceTree = "<group>"; };
-		EBD86783209DA09400EE6B98 /* GZNetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZNetWorking.m; sourceTree = "<group>"; };
-		EBD86784209DA09400EE6B98 /* NSObject+AFN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AFN.h"; sourceTree = "<group>"; };
+		EB861F8822339E7E001C56F0 /* GZNetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZNetWorking.m; sourceTree = "<group>"; };
+		EB861F8922339E7E001C56F0 /* NSObject+AFN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AFN.h"; sourceTree = "<group>"; };
+		EB861F8A22339E7E001C56F0 /* GZNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZNetWorking.h; sourceTree = "<group>"; };
+		EB861F8B22339E7F001C56F0 /* NSObject+AFN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AFN.m"; sourceTree = "<group>"; };
+		EB861F8C22339E7F001C56F0 /* NSObject+GZNet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GZNet.m"; sourceTree = "<group>"; };
+		EB861F8D22339E7F001C56F0 /* NSObject+GZNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+GZNet.h"; sourceTree = "<group>"; };
+		EB861F9122339EB2001C56F0 /* GZTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZTableView.m; sourceTree = "<group>"; };
+		EB861F9222339EB3001C56F0 /* GZTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZTableView.h; sourceTree = "<group>"; };
 		EBD86789209DA14B00EE6B98 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		EBD8678A209DA14B00EE6B98 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EBD8678C209DA14B00EE6B98 /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
@@ -367,8 +369,6 @@
 		F77DE28A20429D0B006C3020 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F77DE29220429D6C006C3020 /* GZViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZViewController.h; sourceTree = "<group>"; };
 		F77DE29320429D6C006C3020 /* GZViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZViewController.m; sourceTree = "<group>"; };
-		F77DE29520429D8D006C3020 /* GZTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZTableView.h; sourceTree = "<group>"; };
-		F77DE29620429D8D006C3020 /* GZTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZTableView.m; sourceTree = "<group>"; };
 		F79E912A205F56B600CAA46D /* UIResponder+SubVIews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIResponder+SubVIews.h"; sourceTree = "<group>"; };
 		F79E912B205F56B600CAA46D /* UIResponder+SubVIews.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+SubVIews.m"; sourceTree = "<group>"; };
 		F7A376D0205CB22B003058C2 /* CEshiTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEshiTableViewCell.h; sourceTree = "<group>"; };
@@ -690,12 +690,12 @@
 		EBD8677E209DA09400EE6B98 /* Net */ = {
 			isa = PBXGroup;
 			children = (
-				EBD86784209DA09400EE6B98 /* NSObject+AFN.h */,
-				EBD86780209DA09400EE6B98 /* NSObject+AFN.m */,
-				EBD8677F209DA09400EE6B98 /* NSObject+GZNet.h */,
-				EBD86782209DA09400EE6B98 /* NSObject+GZNet.m */,
-				EBD86781209DA09400EE6B98 /* GZNetWorking.h */,
-				EBD86783209DA09400EE6B98 /* GZNetWorking.m */,
+				EB861F8A22339E7E001C56F0 /* GZNetWorking.h */,
+				EB861F8822339E7E001C56F0 /* GZNetWorking.m */,
+				EB861F8922339E7E001C56F0 /* NSObject+AFN.h */,
+				EB861F8B22339E7F001C56F0 /* NSObject+AFN.m */,
+				EB861F8D22339E7F001C56F0 /* NSObject+GZNet.h */,
+				EB861F8C22339E7F001C56F0 /* NSObject+GZNet.m */,
 			);
 			path = Net;
 			sourceTree = "<group>";
@@ -800,8 +800,8 @@
 				F758BBAA2068A54F00189FBC /* NSObject+Runtime.m */,
 				F77DE29220429D6C006C3020 /* GZViewController.h */,
 				F77DE29320429D6C006C3020 /* GZViewController.m */,
-				F77DE29520429D8D006C3020 /* GZTableView.h */,
-				F77DE29620429D8D006C3020 /* GZTableView.m */,
+				EB861F9222339EB3001C56F0 /* GZTableView.h */,
+				EB861F9122339EB2001C56F0 /* GZTableView.m */,
 				F766E05D20439A8800F09BE8 /* NSObject+GZModelAndClick.h */,
 				F766E05E20439A8900F09BE8 /* NSObject+GZModelAndClick.m */,
 				226F3BFA20941FA00014B1F8 /* UIView+GZAdd.h */,
@@ -921,7 +921,6 @@
 				F77DE28020429D0B006C3020 /* ViewController.m in Sources */,
 				EBD867B6209DA14B00EE6B98 /* UIWebView+AFNetworking.m in Sources */,
 				F7A376D3205CB22B003058C2 /* CEshiTableViewCell.m in Sources */,
-				EBD86786209DA09500EE6B98 /* NSObject+GZNet.m in Sources */,
 				223611E6209476B90089493A /* YYTextDebugOption.m in Sources */,
 				223611EC209476B90089493A /* NSAttributedString+YYText.m in Sources */,
 				2236120C209476B90089493A /* NSObject+YYAddForKVO.m in Sources */,
@@ -937,6 +936,7 @@
 				2236121A209476B90089493A /* YYReachability.m in Sources */,
 				223611F4209476B90089493A /* UIDevice+YYAdd.m in Sources */,
 				EBD867B2209DA14B00EE6B98 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				EB861F8F22339E7F001C56F0 /* NSObject+AFN.m in Sources */,
 				22361219209476B90089493A /* YYThreadSafeArray.m in Sources */,
 				EBD867B8209DA14B00EE6B98 /* AFImageDownloader.m in Sources */,
 				223611F1209476B90089493A /* UITextField+YYAdd.m in Sources */,
@@ -954,16 +954,15 @@
 				EBD867BB209DA14B00EE6B98 /* AFURLSessionManager.m in Sources */,
 				223611CE209476B90089493A /* YYImageCache.m in Sources */,
 				223611D9209476B90089493A /* YYAnimatedImageView.m in Sources */,
-				F77DE29720429D8D006C3020 /* GZTableView.m in Sources */,
 				EBD867B7209DA14B00EE6B98 /* AFAutoPurgingImageCache.m in Sources */,
 				223611CF209476B90089493A /* YYWebImageManager.m in Sources */,
 				22361202209476B90089493A /* NSObject+YYAdd.m in Sources */,
 				223611E4209476B90089493A /* YYTextSelectionView.m in Sources */,
 				223611D3209476B90089493A /* YYFrameImage.m in Sources */,
-				EBD86785209DA09500EE6B98 /* NSObject+AFN.m in Sources */,
 				223611F7209476B90089493A /* UIScrollView+YYAdd.m in Sources */,
 				223611CD209476B90089493A /* YYMemoryCache.m in Sources */,
 				223611E9209476B90089493A /* YYTextUtilities.m in Sources */,
+				EB861F8E22339E7F001C56F0 /* GZNetWorking.m in Sources */,
 				EBD867B1209DA14B00EE6B98 /* UIRefreshControl+AFNetworking.m in Sources */,
 				223611EE209476B90089493A /* YYTextAttribute.m in Sources */,
 				F79E912C205F56B600CAA46D /* UIResponder+SubVIews.m in Sources */,
@@ -973,7 +972,6 @@
 				223611E3209476B90089493A /* YYTextLine.m in Sources */,
 				223611F6209476B90089493A /* UITableView+YYAdd.m in Sources */,
 				F77DE28B20429D0B006C3020 /* main.m in Sources */,
-				EBD86787209DA09500EE6B98 /* GZNetWorking.m in Sources */,
 				223611E5209476B90089493A /* YYTextKeyboardManager.m in Sources */,
 				22361209209476B90089493A /* NSString+YYAdd.m in Sources */,
 				223611DB209476B90089493A /* NSObject+YYModel.m in Sources */,
@@ -983,6 +981,7 @@
 				223611FD209476B90089493A /* UIControl+YYAdd.m in Sources */,
 				223611F9209476B90089493A /* UIView+YYAdd.m in Sources */,
 				223611F8209476B90089493A /* UIScreen+YYAdd.m in Sources */,
+				EB861F9022339E7F001C56F0 /* NSObject+GZNet.m in Sources */,
 				223611FE209476B90089493A /* UIFont+YYAdd.m in Sources */,
 				EBD867B0209DA14B00EE6B98 /* UIProgressView+AFNetworking.m in Sources */,
 				EBD867BE209DA14B00EE6B98 /* AFSecurityPolicy.m in Sources */,
@@ -1007,6 +1006,7 @@
 				2236120A209476B90089493A /* NSNotificationCenter+YYAdd.m in Sources */,
 				22361205209476B90089493A /* NSKeyedUnarchiver+YYAdd.m in Sources */,
 				22361208209476B90089493A /* NSDate+YYAdd.m in Sources */,
+				EB861F9322339EB3001C56F0 /* GZTableView.m in Sources */,
 				223611F5209476B90089493A /* UIApplication+YYAdd.m in Sources */,
 				223611CA209476B90089493A /* YYDiskCache.m in Sources */,
 				2236120B209476B90089493A /* NSDictionary+YYAdd.m in Sources */,

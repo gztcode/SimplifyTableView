@@ -58,6 +58,7 @@
     }
     return self;
 }
+
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];
@@ -126,7 +127,7 @@
                 className =name;
             }
         }
-        if ([className isKindOfClass:NSNull.class]) {
+        if ([className isKindOfClass:NSNull.class] || !className) {
             cell =[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass(UITableViewCell.class)];
         }
         if ([className isExistenceXib]) {
@@ -142,11 +143,12 @@
     cell.gzIndexPath =indexPath;
     //设置数据
     if (_isGroup) {
-         if ([self.gzDataSource[indexPath.section] isKindOfClass:NSArray.class]) {
+        if ([self.gzDataSource[indexPath.section] isKindOfClass:NSArray.class]) {
             cell.gzModel =self.gzDataSource[indexPath.section][indexPath.row];
         }else{
             cell.gzModel = self.gzDataSource[indexPath.section];
         }
+        
     }else{
         cell.gzModel = self.gzDataSource[indexPath.row];
     }
@@ -155,6 +157,7 @@
     cell.gzClick = ^(id click, NSIndexPath *gzIndexPath) {
         !weakSelf.gzClick?:weakSelf.gzClick(click,indexPath);
     };
+    
     return cell;
 }
 

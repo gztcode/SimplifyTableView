@@ -8,10 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "NSObject+GZNet.h"
+
 @interface GZNetWorking : NSObject
 
+///状态码
+@property(nonatomic,assign) int code;
+
+///数据
 @property(nonatomic,strong) id data;
 
+///返回消息
+@property(nonatomic,copy) NSString *msg;
 
 /**
  GET网络请求(重写此方法可修改URL)

@@ -10,7 +10,16 @@
 #import "NSObject+AFN.h"
 
 //设置请求地址
+#ifdef DEBUG
+// do sth
+static const NSString * rootUrl = @"http://192.168.2.72:8081";    //测试地址
+#else
+// do sth
 static const NSString * rootUrl = @"http://192.168.1.1";    //测试地址
+
+#endif
+
+
 
 @interface NSObject (GZNet)
 
@@ -50,6 +59,11 @@ typedef NS_ENUM(NSInteger, GZNetWorkState) {
  @param failure 失败返回数据
 */
 + (void)gzPostUploadNetWorking:(NSDictionary *)parameters constructingFile:(nullable id)file success:(Success)success failure:(Failure)failure;
+
+
+
+
+
 
 
 @end

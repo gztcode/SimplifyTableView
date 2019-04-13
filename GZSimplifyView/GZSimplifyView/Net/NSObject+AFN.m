@@ -22,7 +22,24 @@
         _sharedAFN =[AFHTTPSessionManager manager];
         _sharedAFN.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone]; //安全策略为None
     });
+    AFHTTPRequestSerializer *requestSerializer =  [AFJSONRequestSerializer serializer];
+    for (NSString *httpHeaderField in headers().allKeys) {
+        NSString *value = headers()[httpHeaderField];
+        [requestSerializer setValue:value forHTTPHeaderField:httpHeaderField];
+    }
+    _sharedAFN.requestSerializer = requestSerializer;
     return _sharedAFN;
+}
+
+//headers
+static NSDictionary * headers(){
+    return @{
+             @"Authorization":@"",
+//             @"imei":getAppUUID(),
+//             @"version":getAppVersion(),
+             @"channel":@"AppStore",
+             @"deviceType":@"2"
+             };
 }
 +(void)GET:(NSString *)URLString
                             parameters:(nullable id)parameters
